@@ -1,0 +1,48 @@
+{
+  id:
+  order_id
+  service_id
+  extras: [
+     {
+        slug: "a"
+        name: Size
+        options: [
+            {
+                slug:
+                name: S
+                price: 0
+            }
+        ]
+    },
+    {
+        slug: "b"
+        name: Toppin
+        options: [
+            {
+                slug:
+                name: Tran chau den
+                price: 10
+            },
+            {
+                slug:
+                name: Tran chau trang
+                price: 10
+            }
+        ]
+    },
+  ]
+}
+
+nhập promotion => disable promotion luôn => lưu ở bill_items
+
+Promotion
+    Giảm giá cho toàn hóa đơn
+    Giảm giá cho 1 sản phẩm
+    Tặng món
+        + Mua 1 tang 1
+        + Tang 1 mon
+        + Tang 1 mon co extra la ...
+
+Code:
+    Sài 1 lần cho private user
+    Sài được nhiều lần cho nhiều user

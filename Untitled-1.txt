@@ -1,0 +1,50 @@
+{
+    id
+    name
+    extras:[
+        {
+            slug: "a"
+            name: Size
+            multiple: false:
+            options: [
+                {
+                    slug:
+                    name: S
+                    price: 0
+                },
+                {
+                    slug:
+                    name: M
+                    price: 0
+                },
+                {
+                    slug:
+                    name: L
+                    price: 0
+                },
+            ]
+        },
+        {
+            slug: "b"
+            name: Toppin
+            multiple: true:
+            options: [
+                {
+                    slug:
+                    name: Tran chau den
+                    price: 10
+                },
+                {
+                    slug:
+                    name: Tran chau trang
+                    price: 10
+                },
+                {
+                    slug:
+                    name: Tran chau hong
+                    price: 10
+                },
+            ]
+        },
+    ]
+}

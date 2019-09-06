@@ -1,2 +1,0 @@
-# yimi-test
-Test data
