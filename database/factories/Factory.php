@@ -47,7 +47,7 @@ $factory->define(App\Store::class, function (Faker\Generator $faker) use ($faker
 $factory->define(App\Order::class, function (Faker\Generator $faker) use ($fakerVN, $status_order) {
     return [
         'no' => $fakerVN->numerify(),
-        'amount' => $fakerVN->numerify(),
+        'amount' => 0,
         'status' => $status_order[array_rand($status_order)],
         'note' => $fakerVN->text(),
         'rating' => rand(1, 5),

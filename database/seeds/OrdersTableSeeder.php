@@ -35,6 +35,7 @@ class OrdersTableSeeder extends Seeder
             ]);
 
             foreach ($order->orderItems as $orderItem) {
+                $order->amount = $order->amount + $orderItem->amount;
                 $service = App\Service::find($orderItem->service_id);
                 $orderItem->billItem()->create([
                     'bill_id' => $bill->id,
@@ -45,6 +46,9 @@ class OrdersTableSeeder extends Seeder
                     'description' => $service->description,
                 ]);
             }
+            $order->save();
+            $bill->amount = $order->amount;
+            $bill->save();
         }
     }
 }
