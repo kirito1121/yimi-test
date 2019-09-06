@@ -15,9 +15,10 @@ class CreateExtrasTable extends Migration
     {
         Schema::create('03_extras', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->boolean('multiple');
-            $table->integer('index')->default(0);
+            $table->string('name')->comment('Tên extra');
+            $table->string('slug')->comment('Tên extra slug');
+            $table->boolean('multiple')->default(0)->comment('loại extra được chon nhiều hay 1');
+            $table->integer('index')->default(0)->comment('Bị trí của extra');
             $table->timestamps();
             $table->softDeletes();
         });

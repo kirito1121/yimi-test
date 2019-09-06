@@ -18,61 +18,69 @@ class MenusTableSeeder extends Seeder
         $extras = [
             [
                 "name" => "Kích cỡ",
+                "slug" => "kich-co",
                 "multiple" => false,
                 "index" => 1,
                 "options" => [
-                    ["name" => "S", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "M", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "L", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "S", "slug" => "s", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "M", "slug" => "m", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "L", "slug" => "l", "index" => 3, "default" => false, "price" => 0],
                 ],
             ],
             [
                 "name" => "Đá",
+                "slug" => "da",
                 "multiple" => false,
                 "index" => 2,
                 "options" => [
-                    ["name" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
                 "name" => "Đường",
+                "slug" => "duong",
                 "multiple" => false,
                 "index" => 3,
                 "options" => [
-                    ["name" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
                 "name" => "Toppin",
+                "slug" => "toppin",
                 "multiple" => true,
                 "index" => 4,
                 "options" => [
                     [
                         "name" => "Trân châu",
+                        "slug" => "tran-chau",
                         "default" => false,
                         "price" => 10,
                         "index" => 1,
                     ],
                     [
                         "name" => "Thạch",
+                        "slug" => "thach",
                         "default" => false,
                         "price" => 10,
                         "index" => 2,
                     ],
                     [
                         "name" => "Kiwi",
+                        "slug" => "kiwi",
                         "default" => false,
                         "price" => 10,
                         "index" => 3,
                     ],
                     [
                         "name" => "Yogurt",
+                        "slug" => "yogurt",
                         "default" => false,
                         "price" => 10,
                         "index" => 4,
@@ -208,7 +216,7 @@ class MenusTableSeeder extends Seeder
         }
 
         foreach ($extras as $ex) {
-            $extra = Extra::create(["name" => $ex['name'], "index" => $ex['index'], "multiple" => $ex['multiple']]);
+            $extra = Extra::create(["name" => $ex['name'], "slug" => $ex['slug'], "index" => $ex['index'], "multiple" => $ex['multiple']]);
             $extra->options()->createMany($ex['options']);
         }
     }

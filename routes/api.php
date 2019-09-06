@@ -15,7 +15,7 @@
 //     return $request->user();
 // });
 
-Route::get('/services', function () {
+Route::get('/menus', function () {
     $menus = \App\Menu::with('services')->get();
     return $menus;
 });
