@@ -36,10 +36,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 2,
                 "options" => [
-                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25%", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50%", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70%", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100%", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
@@ -48,10 +48,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 3,
                 "options" => [
-                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25%", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50%", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70%", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100%", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
@@ -180,7 +180,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras_default),
+                        "extras" => $extras_default,
                     ],
                     [
                         "name" => "Coffee sửa",
@@ -188,7 +188,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Trà đào",
@@ -196,7 +196,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Trà chanh",
@@ -204,7 +204,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Trà sửa",
@@ -212,7 +212,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Trà đen",
@@ -220,7 +220,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Đá xay socola",
@@ -228,7 +228,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Đá xay trà xanh",
@@ -236,7 +236,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                     [
                         "name" => "Đá xay coffee",
@@ -244,7 +244,7 @@ class MenusTableSeeder extends Seeder
                         "price" => $array_price[array_rand($array_price)],
                         "minutes" => $array_minute[array_rand($array_minute)],
                         "unit" => "Ly",
-                        "extras" => json_encode($extras),
+                        "extras" => $extras,
                     ],
                 ],
             ],

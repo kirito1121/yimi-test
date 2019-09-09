@@ -49,8 +49,6 @@ $factory->define(App\Order::class, function (Faker\Generator $faker) use ($faker
         'no' => $fakerVN->numerify(),
         'amount' => 0,
         'status' => $status_order[array_rand($status_order)],
-        'note' => $fakerVN->text(),
-        'rating' => rand(1, 5),
         'staff_id' => rand(1, 5),
         'customer_id' => rand(1, 5),
         'store_id' => 1,

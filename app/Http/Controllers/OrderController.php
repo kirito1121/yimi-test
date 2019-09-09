@@ -6,8 +6,10 @@ use App\Customer;
 use App\Order;
 use App\Service;
 use DB;
+use Exception;
 use Illuminate\Http\Request;
 
+// use Illuminate\Support\Arr;
 class OrderController extends Controller
 {
 
@@ -21,14 +23,18 @@ class OrderController extends Controller
     {
         DB::beginTransaction();
         try {
-            $services = $request->services;
-            $customer = Customer::find($request->customer);
+            $services = $this->validateExtra($request->services);
+            if (!$services) {
+                return response()->json('Dữ liệu service không hợp lệ', 422);
+            }
+            $data = $request->only(['customer', 'store_id']);
+            $customer = Customer::find($data['customer']);
             $order = $customer->orders()->create([
                 'no' => 421,
                 'amount' => 0,
                 'status' => 'comfirm',
                 'node' => null,
-                'store_id' => $request->store_id,
+                'store_id' => $data['store_id'],
             ]);
             foreach ($services as $serviceItem) {
                 $amount = $this->amount($serviceItem);
@@ -38,17 +44,17 @@ class OrderController extends Controller
                     'service_id' => $serviceItem['id'],
                     'amount' => $amount,
                     'status' => 'wait',
-                    'extras' => json_encode($serviceItem['extras']),
+                    'extras' => $serviceItem['extras'],
                 ]);
             }
+            \Log::info(["amount" => $order->amount]);
             $order->save();
             DB::commit();
             return response()->json(["success" => true, "order" => $order]);
-        } catch (\Throwable $th) {
+        } catch (Exception $e) {
             DB::rollBack();
-            return response()->json($th);
+            return response()->json($e->getMessage());
         }
-
     }
 
     /**
@@ -59,10 +65,12 @@ class OrderController extends Controller
     public function amount($serviceItem)
     {
         $amount = 0;
-        $service = Service::select('id', 'price')->find($serviceItem['id']);
+        $service = Service::select('id', 'price', 'extras')->find($serviceItem['id']);
         $amount = $amount + $service->price * $serviceItem['quantity'];
-        foreach ($serviceItem['extras'] as $extra) {
-            $amount = $amount + $this->totalPrice($extra['options'], count($extra['options']));
+        if (isset($serviceItem['extras'])) {
+            foreach ($serviceItem['extras'] as $extra) {
+                $amount = $amount + $this->totalPrice($extra['options'], count($extra['options']));
+            }
         }
         return $amount;
     }
@@ -73,11 +81,54 @@ class OrderController extends Controller
      */
     public function totalPrice($options, $count)
     {
-        \Log::info($options[$count - 1]['name'] . " name - price " . $options[$count - 1]['price']);
         if ($count == 1) {
             return $options[$count - 1]['price'];
         }
         return $options[$count - 1]['price'] + $this->totalPrice($options, $count - 1);
+    }
+
+    /**
+     *
+     * Kiểm tra dữ liệu service extra
+     */
+
+    public function validateExtra($services)
+    {
+        $dataService = [];
+        foreach ($services as $serviceItem) {
+            $item = [
+                "extras" => [],
+            ];
+            $service = Service::select('id', 'price', 'extras')->find($serviceItem['id']);
+            if ($service) {
+                $serviceExtra = collect($service->extras);
+                foreach ($serviceItem['extras'] as $extraItem) {
+                    $extra = $serviceExtra->firstWhere('slug', $extraItem['slug']);
+                    if ($extra) {
+                        $options = collect($extra['options']);
+                        $dataOption = [];
+                        foreach ($extraItem['options'] as $optionItem) {
+                            $option = $options->where('slug', $optionItem)->first();
+                            if ($option) {
+                                array_push($dataOption, $option);
+                            } else {
+                                return null;
+                            }
+                        }
+                        $extra['options'] = $dataOption;
+                        array_push($item['extras'], $extra);
+                    } else {
+                        return null;
+                    }
+                }
+                $item['quantity'] = $serviceItem['quantity'];
+                $item['id'] = $serviceItem['id'];
+            } else {
+                return null;
+            }
+            array_push($dataService, $item);
+        }
+        return $dataService;
     }
 
 }

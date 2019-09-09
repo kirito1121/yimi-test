@@ -21,7 +21,7 @@ class OrdersTableSeeder extends Seeder
                     'service_id' => $service->id,
                     'quantity' => 1,
                     'amount' => $service->price,
-                    'extra' => null,
+                    'extras' => null,
                     'status' => $status_order_item[array_rand($status_order_item)],
                 ]);
             }
@@ -40,7 +40,7 @@ class OrdersTableSeeder extends Seeder
                 $orderItem->billItem()->create([
                     'bill_id' => $bill->id,
                     'amount' => $orderItem->amount,
-                    'extra' => $orderItem->extra,
+                    'extras' => $orderItem->extra,
                     'quantity' => $orderItem->quantity,
                     'name' => $service->name,
                     'description' => $service->description,
