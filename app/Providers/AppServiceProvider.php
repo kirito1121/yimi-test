@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // if (env('APP_ENV') === 'local') {
+        \DB::listen(function ($query) {
+            \Log::info(
+                $query->sql,
+                $query->bindings,
+                $query->time
+            );
+        });
+        // }
     }
 
     /**

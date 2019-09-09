@@ -15,6 +15,9 @@
 //     return $request->user();
 // });
 
+Route::get('/orders', 'OrderController@index');
+Route::post('/orders', 'OrderController@store');
+
 Route::get('/menus', function () {
     $menus = \App\Menu::with('services')->get();
     return $menus;
@@ -67,7 +70,7 @@ Route::get('/extras', function (Request $request) {
 });
 
 Route::get('/services/{id}', function ($id, Request $request) {
-    $service = \App\Service::with('extras.options')->find($id);
+    $service = \App\Service::find($id);
     return $service;
 });
 

@@ -8,6 +8,15 @@ class Order extends Model
 {
     protected $table = '04_orders';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'no', 'amount', 'note', 'status', 'customer_id', 'store_id', 'staff_id',
+    ];
+
     public function orderItems()
     {
         return $this->hasMany('App\OrderItem');

@@ -10,11 +10,11 @@ class BillItem extends Model
 
     public function bill()
     {
-        return $this->belongsTo('App/Bill', 'bill_id');
+        return $this->belongsTo('App\Bill', 'bill_id');
     }
 
     public function orderItem()
     {
-        return $this->belongsTo('App/OrderItem', 'order_item_id');
+        return $this->belongsTo('App\OrderItem', 'order_item_id');
     }
 }

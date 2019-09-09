@@ -1,0 +1,111 @@
+{
+    "customer": 1,
+    "store_id": 1,
+    "services": [
+        {
+            "id": 1,
+            "quantity": 1,
+            "extras": [
+                {
+                    "slug": "kich-co",
+                    "name": "Kích cỡ",
+                    "options": [
+                        {
+                            "name": "S",
+                            "slug": "s",
+                            "price": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "Đá",
+                    "slug": "da",
+                    "options": [
+                        {
+                            "name": "25%",
+                            "slug": "25",
+                            "price": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "quantity": 1,
+            "extras": [
+                {
+                    "slug": "kich-co",
+                    "name": "Kích cỡ",
+                    "options": [
+                        {
+                            "name": "M",
+                            "slug": "m",
+                            "price": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "Đá",
+                    "slug": "da",
+                    "options": [
+                        {
+                            "name": "50%",
+                            "slug": "50",
+                            "price": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "quantity": 1,
+            "extras": [
+                {
+                    "slug": "kich-co",
+                    "name": "Kích cỡ",
+                    "options": [
+                        {
+                            "name": "M",
+                            "slug": "m",
+                            "price": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "Đá",
+                    "slug": "da",
+                    "options": [
+                        {
+                            "name": "50%",
+                            "slug": "50",
+                            "price": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "Toppin",
+                    "slug": "toppin",
+                    "options": [
+                        {
+                            "name": "Trân châu",
+                            "slug": "tran-chau",
+                            "price": 10
+                        },
+                        {
+                            "name": "Thạch",
+                            "slug": "thach",
+                            "price": 10
+                        },
+                        {
+                            "name": "Kiwi",
+                            "slug": "kiwi",
+                            "price": 10
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

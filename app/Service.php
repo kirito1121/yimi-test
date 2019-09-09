@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
     use SoftDeletes;
+
     protected $table = '03_services';
 
     protected $fillable = [
-        'name', 'price', 'minutes', 'unit', 'description', 'image',
+        'name', 'price', 'minutes', 'unit', 'description', 'image', 'extras',
     ];
 
     protected $hidden = [
@@ -29,6 +30,6 @@ class Service extends Model
     }
 
     protected $casts = [
-        'extras' => 'array',
+        "extras" => "array",
     ];
 }
