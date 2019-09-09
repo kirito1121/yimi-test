@@ -30,7 +30,7 @@ class OrderController extends Controller
             $data = $request->only(['customer', 'store_id']);
             $customer = Customer::find($data['customer']);
             $order = $customer->orders()->create([
-                'no' => 421,
+                'no' => rand(1000, 9999),
                 'amount' => 0,
                 'status' => 'comfirm',
                 'node' => null,
