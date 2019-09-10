@@ -35,10 +35,10 @@ class ServiceType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'The description of the menu',
             ],
-            // 'image' => [
-            //     'type' => GraphQL::type('Upload'),
-            //     'description' => 'The description of the menu',
-            // ],
+            'image' => [
+                'type' => Type::string(),
+                'description' => 'The description of the menu',
+            ],
             'extras' => [
                 'type' => Type::string(),
                 'description' => 'The extra of the menu',
