@@ -15,7 +15,7 @@
  */
 $fakerVN = Faker\Factory::create('vi_VN');
 
-$status_order = ['comfirm', 'do', 'done', 'receive', 'finish'];
+$status_order = ['new', 'comfirmed', 'doing', 'done', 'received', 'finish'];
 
 $factory->define(App\User::class, function (Faker\Generator $faker) use ($fakerVN) {
     return [

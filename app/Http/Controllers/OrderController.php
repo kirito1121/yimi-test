@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 
 // use Illuminate\Support\Arr;
+
 class OrderController extends Controller
 {
 
@@ -32,7 +33,7 @@ class OrderController extends Controller
             $order = $customer->orders()->create([
                 'no' => rand(1000, 9999),
                 'amount' => 0,
-                'status' => 'comfirm',
+                'status' => 'new',
                 'node' => null,
                 'store_id' => $data['store_id'],
             ]);
