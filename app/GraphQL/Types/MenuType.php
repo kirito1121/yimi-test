@@ -35,6 +35,10 @@ class MenuType extends GraphQLType
                 'type' => Type::int(),
                 'description' => 'The parent of the menu',
             ],
+            'deleted_at' => [
+                'type' => Type::string(),
+                'description' => 'The deleted_at of the menu',
+            ],
             'children' => [
                 'type' => Type::listOf(GraphQL::type('menu')),
                 'description' => 'The children of the menu',

@@ -112,7 +112,9 @@ return [
                 'menu' => \App\GraphQL\Queries\MenuQuery::class,
             ],
             'mutation' => [
-
+                'createMenu' => \App\GraphQL\Mutations\MenuCreateMutation::class,
+                'updateMenu' => \App\GraphQL\Mutations\MenuUpdateMutation::class,
+                'deleteRestoreMenu' => \App\GraphQL\Mutations\MenuDeleteRestoreMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],
