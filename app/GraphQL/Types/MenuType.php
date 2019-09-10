@@ -43,6 +43,10 @@ class MenuType extends GraphQLType
                 'type' => Type::listOf(GraphQL::type('menu')),
                 'description' => 'The children of the menu',
             ],
+            'services' => [
+                'type' => Type::listOf(GraphQL::type('service')),
+                'description' => 'The services of the menu',
+            ],
         ];
     }
 }

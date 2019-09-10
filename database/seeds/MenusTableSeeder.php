@@ -173,78 +173,96 @@ class MenusTableSeeder extends Seeder
                 "name" => 'Đồ uống',
                 "index" => 1,
                 "parent_id" => null,
-                "services" => [
+                "children" => [
                     [
-                        "name" => "Coffee",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras_default,
+                        "name" => 'Đồ Coffee',
+                        "index" => 1,
+                        "services" => [
+                            [
+                                "name" => "Coffee",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras_default,
+                            ],
+                            [
+                                "name" => "Coffee sửa",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                        ],
                     ],
                     [
-                        "name" => "Coffee sửa",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
+                        "name" => 'Trà',
+                        "index" => 1,
+                        "services" => [
+                            [
+                                "name" => "Trà đào",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                            [
+                                "name" => "Trà chanh",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                            [
+                                "name" => "Trà sửa",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                            [
+                                "name" => "Trà đen",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                        ],
                     ],
                     [
-                        "name" => "Trà đào",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Trà chanh",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Trà sửa",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Trà đen",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Đá xay socola",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Đá xay trà xanh",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
-                    ],
-                    [
-                        "name" => "Đá xay coffee",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Ly",
-                        "extras" => $extras,
+                        "name" => 'Trà',
+                        "index" => 1,
+                        "services" => [
+                            [
+                                "name" => "Đá xay socola",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                            [
+                                "name" => "Đá xay trà xanh",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                            [
+                                "name" => "Đá xay coffee",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Ly",
+                                "extras" => $extras,
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -252,41 +270,66 @@ class MenusTableSeeder extends Seeder
                 "name" => 'Đồ ăn',
                 "index" => 2,
                 "parent_id" => null,
-                "services" => [
+                "children" => [
                     [
-                        "name" => "Bánh canh",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Tô",
+                        "name" => 'Bún',
+                        "index" => 2,
+                        "services" => [
+                            [
+                                "name" => "Bún chả cá",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Tô",
+                            ],
+                            [
+                                "name" => "Bún mắm",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Tô",
+                            ],
+                        ],
                     ],
                     [
-                        "name" => "Mỳ tôm",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Tô",
+                        "name" => 'Mỳ',
+                        "index" => 2,
+                        "services" => [
+                            [
+                                "name" => "Mỳ tôm",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Tô",
+                            ],
+                            [
+                                "name" => "Mỳ quảng",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Tô",
+                            ],
+                        ],
                     ],
                     [
-                        "name" => "Mỳ quảng",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Tô",
-                    ],
-                    [
-                        "name" => "Buốn chả cá",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Tô",
-                    ],
-                    [
-                        "name" => "Bánh mỳ",
-                        "description" => $faker->text(),
-                        "price" => $array_price[array_rand($array_price)],
-                        "minutes" => $array_minute[array_rand($array_minute)],
-                        "unit" => "Cái",
+                        "name" => 'Bánh',
+                        "index" => 2,
+                        "services" => [
+                            [
+                                "name" => "Bánh canh",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Tô",
+                            ],
+                            [
+                                "name" => "Bánh mỳ",
+                                "description" => $faker->text(),
+                                "price" => $array_price[array_rand($array_price)],
+                                "minutes" => $array_minute[array_rand($array_minute)],
+                                "unit" => "Cái",
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -294,9 +337,12 @@ class MenusTableSeeder extends Seeder
 
         foreach ($menus as $menuItem) {
             $menu = Menu::create(["name" => $menuItem['name'], "index" => $menuItem['index'], "parent_id" => $menuItem['parent_id']]);
-            foreach ($menuItem['services'] as $serviceItem) {
-                $service = Service::create($serviceItem);
-                $service->menus()->attach($menu, ['price' => $array_price[array_rand($array_price)]]);
+            foreach ($menuItem['children'] as $item) {
+                $child = $menu->children()->create(["name" => $item['name'], "index" => $item['index']]);
+                foreach ($item['services'] as $serviceItem) {
+                    $service = Service::create($serviceItem);
+                    $service->menus()->attach($child, ['price' => $array_price[array_rand($array_price)]]);
+                }
             }
         }
 

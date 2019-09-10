@@ -110,11 +110,13 @@ return [
             'query' => [
                 'menus' => \App\GraphQL\Queries\MenusQuery::class,
                 'menu' => \App\GraphQL\Queries\MenuQuery::class,
+                'service' => \App\GraphQL\Queries\ServiceQuery::class,
             ],
             'mutation' => [
                 'createMenu' => \App\GraphQL\Mutations\MenuCreateMutation::class,
                 'updateMenu' => \App\GraphQL\Mutations\MenuUpdateMutation::class,
                 'deleteRestoreMenu' => \App\GraphQL\Mutations\MenuDeleteRestoreMutation::class,
+                'createService' => \App\GraphQL\Mutations\ServiceCreateMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],
@@ -136,6 +138,7 @@ return [
         // 'relation_example'  => ExampleRelationType::class,
         // 'Upload' => \Rebing\GraphQL\Support\UploadType::class,
         'menu' => \App\GraphQL\Types\MenuType::class,
+        'service' => \App\GraphQL\Types\ServiceType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

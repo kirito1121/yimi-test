@@ -29,7 +29,7 @@ class Service extends Model
         return $this->hasMany('App\OrderItem');
     }
 
-    protected $casts = [
-        "extras" => "array",
-    ];
+    // protected $casts = [
+    //     "extras" => "array",
+    // ];
 }
