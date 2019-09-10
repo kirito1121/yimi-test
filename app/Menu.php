@@ -21,4 +21,24 @@ class Menu extends Model
     {
         return $this->belongsToMany('App\Service', '03_menu_services', 'menu_id', 'service_id')->withPivot('price', 'hot', 'index');
     }
+
+    // public function parent()
+    // {
+    //     return $this->belongsTo(Menu::class, 'parent_id');
+    // }
+
+    // public function parents()
+    // {
+    //     return $this->parent()->with('parents');
+    // }
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->menus()->with('children');
+    }
 }
