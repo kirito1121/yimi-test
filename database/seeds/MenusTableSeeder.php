@@ -15,7 +15,7 @@ class MenusTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $array_price = [20, 25, 30, 35, 40, 45, 50];
+        $array_price = [20000, 25000, 30000, 35000, 40000, 45000, 50000];
         $array_minute = [5, 10, 15];
 
         $extras = [
@@ -26,8 +26,8 @@ class MenusTableSeeder extends Seeder
                 "index" => 1,
                 "options" => [
                     ["name" => "S", "slug" => "s", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "M", "slug" => "m", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "L", "slug" => "l", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "M", "slug" => "m", "index" => 2, "default" => false, "price" => 5000],
+                    ["name" => "L", "slug" => "l", "index" => 3, "default" => false, "price" => 10000],
                 ],
             ],
             [
@@ -36,10 +36,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 2,
                 "options" => [
-                    ["name" => "25%", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
@@ -48,10 +48,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 3,
                 "options" => [
-                    ["name" => "25%", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
@@ -64,28 +64,28 @@ class MenusTableSeeder extends Seeder
                         "name" => "Trân châu",
                         "slug" => "tran-chau",
                         "default" => false,
-                        "price" => 10,
+                        "price" => 10000,
                         "index" => 1,
                     ],
                     [
                         "name" => "Thạch",
                         "slug" => "thach",
                         "default" => false,
-                        "price" => 10,
+                        "price" => 10000,
                         "index" => 2,
                     ],
                     [
                         "name" => "Kiwi",
                         "slug" => "kiwi",
                         "default" => false,
-                        "price" => 10,
+                        "price" => 10000,
                         "index" => 3,
                     ],
                     [
                         "name" => "Yogurt",
                         "slug" => "yogurt",
                         "default" => false,
-                        "price" => 10,
+                        "price" => 10000,
                         "index" => 4,
                     ],
                 ],
@@ -100,8 +100,8 @@ class MenusTableSeeder extends Seeder
                 "index" => 1,
                 "options" => [
                     ["name" => "S", "slug" => "s", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "M", "slug" => "m", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "L", "slug" => "l", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "M", "slug" => "m", "index" => 2, "default" => false, "price" => 5000],
+                    ["name" => "L", "slug" => "l", "index" => 3, "default" => false, "price" => 10000],
                 ],
             ],
             [
@@ -110,10 +110,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 2,
                 "options" => [
-                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
             [
@@ -122,10 +122,10 @@ class MenusTableSeeder extends Seeder
                 "multiple" => false,
                 "index" => 3,
                 "options" => [
-                    ["name" => "25%", "slug" => "25%", "index" => 1, "default" => true, "price" => 0],
-                    ["name" => "50%", "slug" => "50%", "index" => 2, "default" => false, "price" => 0],
-                    ["name" => "70%", "slug" => "70%", "index" => 3, "default" => false, "price" => 0],
-                    ["name" => "100%", "slug" => "100%", "index" => 4, "default" => false, "price" => 0],
+                    ["name" => "25", "slug" => "25", "index" => 1, "default" => true, "price" => 0],
+                    ["name" => "50", "slug" => "50", "index" => 2, "default" => false, "price" => 0],
+                    ["name" => "70", "slug" => "70", "index" => 3, "default" => false, "price" => 0],
+                    ["name" => "100", "slug" => "100", "index" => 4, "default" => false, "price" => 0],
                 ],
             ],
 
@@ -175,11 +175,11 @@ class MenusTableSeeder extends Seeder
                 "parent_id" => null,
                 "children" => [
                     [
-                        "name" => 'Đồ Coffee',
+                        "name" => 'Cà phê',
                         "index" => 1,
                         "services" => [
                             [
-                                "name" => "Coffee",
+                                "name" => "Cà phê đen",
                                 "description" => $faker->text(),
                                 "price" => $array_price[array_rand($array_price)],
                                 "minutes" => $array_minute[array_rand($array_minute)],
@@ -188,7 +188,7 @@ class MenusTableSeeder extends Seeder
                                 "extras" => json_encode($extras_default),
                             ],
                             [
-                                "name" => "Coffee sửa",
+                                "name" => "Cà phê sữa",
                                 "description" => $faker->text(),
                                 "price" => $array_price[array_rand($array_price)],
                                 "minutes" => $array_minute[array_rand($array_minute)],
@@ -221,7 +221,7 @@ class MenusTableSeeder extends Seeder
                                 "extras" => json_encode($extras),
                             ],
                             [
-                                "name" => "Trà sửa",
+                                "name" => "Trà sữa",
                                 "description" => $faker->text(),
                                 "price" => $array_price[array_rand($array_price)],
                                 "minutes" => $array_minute[array_rand($array_minute)],

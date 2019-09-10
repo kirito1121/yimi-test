@@ -139,6 +139,8 @@ return [
         // 'Upload' => \Rebing\GraphQL\Support\UploadType::class,
         'menu' => \App\GraphQL\Types\MenuType::class,
         'service' => \App\GraphQL\Types\ServiceType::class,
+        'option' => \App\GraphQL\Types\OptionType::class,
+        'extra' => \App\GraphQL\Types\ExtraType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request
