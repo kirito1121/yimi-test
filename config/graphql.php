@@ -141,6 +141,8 @@ return [
         'service' => \App\GraphQL\Types\ServiceType::class,
         'option' => \App\GraphQL\Types\OptionType::class,
         'extra' => \App\GraphQL\Types\ExtraType::class,
+        'order' => \App\GraphQL\Types\OrderType::class,
+        'orderItem' => \App\GraphQL\Types\OrderItemType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

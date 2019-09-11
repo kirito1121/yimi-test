@@ -36,7 +36,6 @@ class MenusQuery extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
-        \Log::info('vaoa day roi');
         /** @var SelectFields $fields */
         $fields = $getSelectFields();
         $select = $fields->getSelect();

@@ -24,12 +24,13 @@ class OrderController extends Controller
     {
         DB::beginTransaction();
         try {
+
             $services = $this->validateExtra($request->services);
             if (!$services) {
                 return response()->json('Dữ liệu service không hợp lệ', 422);
             }
-            $data = $request->only(['customer', 'store_id']);
-            $customer = Customer::find($data['customer']);
+            $data = $request->only(['customer_id', 'store_id']);
+            $customer = Customer::find($data['customer_id']);
             $order = $customer->orders()->create([
                 'no' => rand(1000, 9999),
                 'amount' => 0,
@@ -82,6 +83,9 @@ class OrderController extends Controller
      */
     public function totalPrice($options, $count)
     {
+        if ($count == 0) {
+            return 0;
+        }
         if ($count == 1) {
             return $options[$count - 1]['price'];
         }
@@ -98,37 +102,44 @@ class OrderController extends Controller
         $dataService = [];
         foreach ($services as $serviceItem) {
             $item = [
-                "extras" => [],
+                'extras' => [],
             ];
             $service = Service::select('id', 'price', 'extras')->find($serviceItem['id']);
             if ($service) {
                 $serviceExtra = collect($service->extras);
-                foreach ($serviceItem['extras'] as $extraItem) {
-                    $extra = $serviceExtra->firstWhere('slug', $extraItem['slug']);
-                    if ($extra) {
-                        $options = collect($extra['options']);
-                        $dataOption = [];
-                        foreach ($extraItem['options'] as $optionItem) {
-                            $option = $options->where('slug', $optionItem)->first();
-                            if ($option) {
-                                array_push($dataOption, $option);
-                            } else {
-                                return null;
+                if (isset($serviceItem['extras'])) {
+                    foreach ($serviceItem['extras'] as $extraItem) {
+                        \Log::info($extraItem['slug']);
+                        $extra = $serviceExtra->firstWhere('slug', $extraItem['slug']);
+                        if ($extra) {
+                            $options = collect($extra['options']);
+                            $dataOption = [];
+                            foreach ($extraItem['options'] as $optionItem) {
+                                $option = $options->where('slug', $optionItem)->first();
+                                if ($option) {
+                                    array_push($dataOption, $option);
+                                } else {
+                                    \Log::info('option fail');
+                                    return null;
+                                }
                             }
+                            $extra['options'] = $dataOption;
+                            array_push($item['extras'], $extra);
+                        } else {
+                            \Log::info('extras fail');
+                            return null;
                         }
-                        $extra['options'] = $dataOption;
-                        array_push($item['extras'], $extra);
-                    } else {
-                        return null;
                     }
                 }
                 $item['quantity'] = $serviceItem['quantity'];
                 $item['id'] = $serviceItem['id'];
             } else {
+                \Log::info('service fail');
                 return null;
             }
             array_push($dataService, $item);
         }
+        \Log::info($dataService);
         return $dataService;
     }
 

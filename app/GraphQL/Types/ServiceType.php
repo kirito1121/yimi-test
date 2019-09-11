@@ -44,11 +44,11 @@ class ServiceType extends GraphQLType
                 'description' => 'The extra of the menu',
             ],
             'price' => [
-                'type' => Type::int(),
+                'type' => Type::float(),
                 'description' => 'The price of the menu',
             ],
             'minutes' => [
-                'type' => Type::string(),
+                'type' => Type::int(),
                 'description' => 'The minutes of the menu',
             ],
             'menus' => [
@@ -57,4 +57,9 @@ class ServiceType extends GraphQLType
             ],
         ];
     }
+    protected function resolveExtrasField($root, $args)
+    {
+        return json_encode($root->extras);
+    }
+
 }

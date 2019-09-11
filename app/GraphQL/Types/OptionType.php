@@ -40,7 +40,7 @@ class OptionType extends GraphQLType
                 'description' => 'The default of the option',
             ],
             'price' => [
-                'type' => Type::Double(),
+                'type' => Type::float(),
                 'description' => 'The index of the option',
             ],
             'extra' => [

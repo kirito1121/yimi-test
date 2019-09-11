@@ -30,7 +30,7 @@ class CreateOrdersTable extends Migration
             $table->integer('quantity')->comment('Số lượng của service');
             $table->float('amount')->comment('Tổng tiền của service bao gồm cả extra và số lượng');
             $table->string('status')->comment('Trạng thái của service trong order');
-            $table->text('extras')->nullable()->comment('Extra mà người dùng đã chọn');
+            $table->json('extras')->nullable()->comment('Extra mà người dùng đã chọn');
             $table->unsignedInteger('order_id')->foreign('order_id')->references('id')->on('04_orders');
             $table->unsignedInteger('service_id')->foreign('service_id')->references('id')->on('03_services');
             $table->timestamps();
@@ -53,7 +53,7 @@ class CreateOrdersTable extends Migration
             $table->string('description')->comment('mô tả service');
             $table->float('amount')->comment('Giá của service khi đã có quantity và extra');
             $table->integer('quantity')->comment('số lượng service');
-            $table->text('extras')->nullable()->comment('Extra của service');
+            $table->json('extras')->nullable()->comment('Extra của service');
             $table->unsignedInteger('order_item_id')->foreign('order_item_id')->references('id')->on('04_order_items');
             $table->unsignedInteger('bill_id')->foreign('bill_id')->references('id')->on('04_bills');
             $table->timestamps();

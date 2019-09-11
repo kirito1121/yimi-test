@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('unit')->comment('Đơn vị');
             $table->text('description')->comment('Chi tiết của service');
             $table->text('image')->nullable()->comment('Chi tiết của service');
-            $table->text('extras')->nullable()->comment('Json extra');
+            $table->json('extras')->nullable()->comment('Json extra');
             $table->integer('price')->comment('Giá service');
             $table->integer('minutes')->comment('Thời gian làm service');
             $table->timestamps();
