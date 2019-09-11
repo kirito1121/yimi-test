@@ -111,12 +111,15 @@ return [
                 'menus' => \App\GraphQL\Queries\MenusQuery::class,
                 'menu' => \App\GraphQL\Queries\MenuQuery::class,
                 'service' => \App\GraphQL\Queries\ServiceQuery::class,
+                'orders' => \App\GraphQL\Queries\OrdersQuery::class,
+                'order' => \App\GraphQL\Queries\OrderQuery::class,
             ],
             'mutation' => [
                 'createMenu' => \App\GraphQL\Mutations\MenuCreateMutation::class,
                 'updateMenu' => \App\GraphQL\Mutations\MenuUpdateMutation::class,
                 'deleteRestoreMenu' => \App\GraphQL\Mutations\MenuDeleteRestoreMutation::class,
                 'createService' => \App\GraphQL\Mutations\ServiceCreateMutation::class,
+                'createOrder' => \App\GraphQL\Mutations\OrderCreateMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],

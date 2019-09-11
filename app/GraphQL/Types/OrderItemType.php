@@ -45,4 +45,8 @@ class OrderItemType extends GraphQLType
             ],
         ];
     }
+    protected function resolveExtrasField($root, $args)
+    {
+        return json_encode($root->extras);
+    }
 }

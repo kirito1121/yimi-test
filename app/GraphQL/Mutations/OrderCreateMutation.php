@@ -1,46 +1,60 @@
 <?php
 
-namespace App\Http\Controllers;
+declare (strict_types = 1);
+
+namespace App\GraphQL\Mutations;
 
 use App\Customer;
-use App\Order;
 use App\Service;
+use Closure;
 use DB;
-use Exception;
-use Illuminate\Http\Request;
+use GraphQL;
+use GraphQL\Type\Definition\ResolveInfo;
+use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Mutation;
 
-// use Illuminate\Support\Arr;
-
-class OrderController extends Controller
+class OrderCreateMutation extends Mutation
 {
+    protected $attributes = [
+        'name' => 'orderCreate',
+        'description' => 'A mutation',
+    ];
 
-    public function index(Request $request)
+    public function type(): Type
     {
-        $orders = Order::with(['orderItems', 'bills', 'customer', 'staff'])->orderby('id', 'desc')->get();
-        return $orders;
+        return GraphQL::type('order');
     }
 
-    public function store(Request $request)
+    public function args(): array
     {
+        return [
+            "customer_id" => ["name" => "customer_id", 'type' => Type::int(), "rules" => ["required"]],
+            "staff_id" => ["name" => "staff_id", 'type' => Type::int()],
+            "store_id" => ["name" => "store_id", 'type' => Type::int(), "rules" => ["required"]],
+            "services" => ["name" => "services", 'type' => Type::string(), "rules" => ["required"]],
+        ];
+    }
+
+    public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    {
+
         DB::beginTransaction();
         try {
-
-            $services = $this->validateExtra($request->services);
+            $tmp = str_replace("'", '"', $args["services"]);
+            $services = $this->validateExtra(json_decode($tmp, true));
             if (!$services) {
                 return response()->json('Dữ liệu service không hợp lệ', 422);
             }
-            $data = $request->only(['customer_id', 'store_id']);
-            $customer = Customer::find($data['customer_id']);
+            $customer = Customer::find($args['customer_id']);
             $order = $customer->orders()->create([
                 'no' => rand(1000, 9999),
                 'amount' => 0,
                 'status' => 'new',
                 'node' => null,
-                'store_id' => $data['store_id'],
+                'store_id' => $args['store_id'],
             ]);
             foreach ($services as $serviceItem) {
                 $amount = $this->amount($serviceItem);
-                \Log::info(["amount" => $amount]);
                 $order->amount += $amount;
                 $order->orderItems()->create([
                     'quantity' => $serviceItem['quantity'],
@@ -50,14 +64,14 @@ class OrderController extends Controller
                     'extras' => $serviceItem['extras'],
                 ]);
             }
-            // \Log::info(["amount" => $order->amount]);
             $order->save();
             DB::commit();
-            return response()->json(["success" => true, "order" => $order]);
+            return $order;
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json($e->getMessage());
         }
+
     }
 
     /**
@@ -138,5 +152,4 @@ class OrderController extends Controller
         }
         return $dataService;
     }
-
 }
