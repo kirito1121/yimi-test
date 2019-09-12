@@ -17,6 +17,7 @@
 
 Route::get('/orders', 'OrderController@index');
 Route::post('/orders', 'OrderController@store');
+Route::put('/orders/{id}', 'OrderController@update');
 
 Route::get('/menus', function () {
     $menus = \App\Menu::with('services')->get();
