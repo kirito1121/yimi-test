@@ -133,8 +133,8 @@ return [
     // Example:
     //
     // 'types' => [
-    //     'user' => 'App\GraphQL\Type\UserType'
-    // ]
+    //     'extraInput' => \App\GraphQL\Inputs\ExtraInput::class,
+    // ],
     //
     'types' => [
         // 'example'           => ExampleType::class,
@@ -146,6 +146,9 @@ return [
         'extra' => \App\GraphQL\Types\ExtraType::class,
         'order' => \App\GraphQL\Types\OrderType::class,
         'orderItem' => \App\GraphQL\Types\OrderItemType::class,
+        //
+        'extraInput' => \App\GraphQL\Inputs\ExtraInput::class,
+        'serviceInput' => \App\GraphQL\Inputs\ServiceInput::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

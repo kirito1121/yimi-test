@@ -31,7 +31,7 @@ class OrderCreateMutation extends Mutation
             "customer_id" => ["name" => "customer_id", 'type' => Type::int(), "rules" => ["required"]],
             "staff_id" => ["name" => "staff_id", 'type' => Type::int()],
             "store_id" => ["name" => "store_id", 'type' => Type::int(), "rules" => ["required"]],
-            "services" => ["name" => "services", 'type' => Type::string(), "rules" => ["required"]],
+            "services" => ["name" => "services", 'type' => Type::listOf(GraphQL::type('serviceInput'))],
         ];
     }
 
@@ -40,8 +40,7 @@ class OrderCreateMutation extends Mutation
 
         DB::beginTransaction();
         try {
-            $tmp = str_replace("'", '"', $args["services"]);
-            $services = $this->validateExtra(json_decode($tmp, true));
+            $services = $this->validateExtra($args["services"]);
             if (!$services) {
                 return response()->json('Dữ liệu service không hợp lệ', 422);
             }
