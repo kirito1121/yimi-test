@@ -18,6 +18,9 @@ class ServiceInput extends InputType
     {
         return [
             'id' => [
+                'type' => Type::int(),
+            ],
+            'service_id' => [
                 'type' => Type::nonNull(Type::int()),
             ],
             'extras' => [
@@ -31,9 +34,9 @@ class ServiceInput extends InputType
     public function rules()
     {
         return [
-            'id' => ['required'],
+            'service_id' => ['required'],
             'quantity' => ['required'],
-            'extras' => ['required'],
+            'service_id' => ['required'],
         ];
     }
 }
