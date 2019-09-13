@@ -43,6 +43,9 @@ class OrderItemType extends GraphQLType
             'order' => [
                 'type' => GraphQL::type('order'),
             ],
+            'billItem' => [
+                'type' => GraphQL::type('billItem'),
+            ],
         ];
     }
     protected function resolveExtrasField($root, $args)

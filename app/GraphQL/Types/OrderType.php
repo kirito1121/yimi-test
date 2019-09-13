@@ -46,6 +46,9 @@ class OrderType extends GraphQLType
             'orderItems' => [
                 'type' => Type::listOf(GraphQL::type('orderItem')),
             ],
+            'bills' => [
+                'type' => Type::listOf(GraphQL::type('bill')),
+            ],
         ];
     }
 }
