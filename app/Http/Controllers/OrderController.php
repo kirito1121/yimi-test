@@ -62,7 +62,6 @@ class OrderController extends Controller
 
     public function update($params, Request $request)
     {
-        return $request->order_items;
         DB::beginTransaction();
         try {
             $orderHelper = new OrderHelper;
@@ -72,32 +71,37 @@ class OrderController extends Controller
             }
             $order = Order::with('orderItems')->find($params);
             foreach ($services as $serviceItem) {
-                $amount = $orderHelper->amount($serviceItem);
-                $order->amount += $amount;
+                $total = $orderHelper->amount($serviceItem);
                 if (isset($serviceItem['id'])) {
-                    $order->orderItems()->where('id', $serviceItem['id'])->update([
-                        'quantity' => $serviceItem['quantity'],
-                        'service_id' => $serviceItem['service_id'],
-                        'amount' => $amount,
-                        'status' => 'wait',
-                        'extras' => $serviceItem['extras'],
-                    ]);
+                    $item = $order->orderItems()->where('id', $serviceItem['id'])->first();
+                    $item->quantity = $serviceItem['quantity'];
+                    $item->service_id = $serviceItem['service_id'];
+                    $item->amount = $total;
+                    $item->status = 'wait';
+                    $item->extras = json_encode($serviceItem['extras']);
+                    $item->save();
                 } else {
-                    $order->orderItems()->create([
+                    $item = $order->orderItems()->create([
                         'quantity' => $serviceItem['quantity'],
                         'service_id' => $serviceItem['service_id'],
-                        'amount' => $amount,
+                        'amount' => $total,
                         'status' => 'wait',
                         'extras' => $serviceItem['extras'],
                     ]);
                 }
             }
+
+            $amount = null;
+            foreach ($order->orderItems as $item) {
+                $amount += $item->amount;
+            }
+            $order->amount = $amount;
             $order->save();
             DB::commit();
             return $order;
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json($e->getMessage());
+            return response()->json($e);
         }
     }
 }

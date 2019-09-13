@@ -120,6 +120,8 @@ return [
                 'deleteRestoreMenu' => \App\GraphQL\Mutations\MenuDeleteRestoreMutation::class,
                 'createService' => \App\GraphQL\Mutations\ServiceCreateMutation::class,
                 'createOrder' => \App\GraphQL\Mutations\OrderCreateMutation::class,
+                'updateOrder' => \App\GraphQL\Mutations\OrderUpdateMutation::class,
+                'updateOrderItem' => \App\GraphQL\Mutations\OrderItemUpdateMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],

@@ -43,34 +43,35 @@ class OrderItemUpdateMutation extends Mutation
                 return response()->json('Dữ liệu service không hợp lệ', 422);
             }
             $order = Order::with('orderItems')->find($args['order_id']);
+            $amount = null;
             foreach ($services as $serviceItem) {
-                $amount = $orderHelper->amount($serviceItem);
-                $order->amount += $amount;
+                $total = $orderHelper->amount($serviceItem);
+                $amount += $total;
                 if (isset($serviceItem['id'])) {
                     $order->orderItems()->where('id', $serviceItem['id'])->update([
                         'quantity' => $serviceItem['quantity'],
                         'service_id' => $serviceItem['service_id'],
-                        'amount' => $amount,
+                        'amount' => $total,
                         'status' => 'wait',
-                        'extras' => $serviceItem['extras'],
+                        'extras' => json_encode($serviceItem['extras']),
                     ]);
                 } else {
                     $order->orderItems()->create([
                         'quantity' => $serviceItem['quantity'],
                         'service_id' => $serviceItem['service_id'],
-                        'amount' => $amount,
+                        'amount' => $total,
                         'status' => 'wait',
                         'extras' => $serviceItem['extras'],
                     ]);
                 }
             }
+            $order->amount = $amount;
             $order->save();
             DB::commit();
             return $order;
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json($e->getMessage());
+            return response()->json($e);
         }
-
     }
 }
