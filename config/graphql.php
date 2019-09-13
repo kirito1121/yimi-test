@@ -122,6 +122,7 @@ return [
                 'createOrder' => \App\GraphQL\Mutations\OrderCreateMutation::class,
                 'updateOrder' => \App\GraphQL\Mutations\OrderUpdateMutation::class,
                 'updateOrderItem' => \App\GraphQL\Mutations\OrderItemUpdateMutation::class,
+                'createBill' => \App\GraphQL\Mutations\BillCreateMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],
@@ -148,6 +149,8 @@ return [
         'extra' => \App\GraphQL\Types\ExtraType::class,
         'order' => \App\GraphQL\Types\OrderType::class,
         'orderItem' => \App\GraphQL\Types\OrderItemType::class,
+        'bill' => \App\GraphQL\Types\BillType::class,
+        'billItem' => \App\GraphQL\Types\BillItemType::class,
         //
         'extraInput' => \App\GraphQL\Inputs\ExtraInput::class,
         'serviceInput' => \App\GraphQL\Inputs\ServiceInput::class,
