@@ -1,0 +1,87 @@
+hanh toán sau
+
+
+Khách hàng order -> nhân viên confirm -> Bếp làm -> Khách hàng nhận nước -> Khách hàng thanh toán -> finish
+Khanh hang order -> Khách hàng thêm service -> khách hàng edit service -> nhân viên confirm -> Bếp làm -> Khách hàng nhận nước -> Khách hàng thanh toán -> finish
+Khách hàng order -> nhân viên confirm -> Bếp làm -> Khách hàng nhận nước -> Khách hàng order thêm -> nhân viên confirm -> Bếp làm -> Khách hàng nhận nước -> Khách hàng thanh toán -> finish
+Khách hàng order -> nhân viên confirm -> Bếp làm -> Khách hàng edit mon (khong dc) -> Khách hàng order thêm -> nhân viên confirm -> bếp làm
+-> Khách hàng nhận nước -> khách hàng thanh toán -> finish
+
+
+Thanh toán trước
+
+
+Khách hàng order -> nhân viên confirm -> Khách hàng thanh toán -> Bếp làm -> Khách hàng nhận nước -> finish
+Khanh hang order -> Khách hàng thêm service -> khách hàng edit service -> nhân viên confirm  -> Khách hàng thanh toán -> Bếp làm -> Khách hàng nhận nước-> finish
+Khách hàng order -> nhân viên confirm  -> Khách hàng thanh toán -> Bếp làm -> Khách hàng nhận nước -> Khách hàng order thêm -> nhân viên confirm -> Khách hàng thanh toán -> Bếp làm -> Khách hàng nhận nước -> finish
+Khách hàng order -> nhân viên confirm  -> Khách hàng thanh toán -> Bếp làm -> Khách hàng edit mon (khong dc) -> Khách hàng order thêm -> nhân viên confirm -> bếp làm
+-> Khách hàng nhận nước -> khách hàng thanh toán -> finish
+
+
+Các trường hợp thanh toán
+
+
+Thanh toán hết
+
+Tạo 1 bill -> order chuyển thành đã thanh toán -> các order item chuyển thành payment = true
+Kiểm tra tất cả orderItems trạng thái payment = true -> đã thanh toán hết -> paid = true
+
+
+Thanh toán một phần
+
+Tạo 1 bill -> order không chuyển thành đã thanh toán -> các order item chuyển thành payment = true
+Kiểm tra orderItems có ít nhất 1 trạng thái payment = false -> chưa thanh toán hết
+Tạo 1 bill nửa khi thanh toán tiếp
+
+
+
+
+Những thực hiện trên order
+
+
+Khách hàng order
+  Tạo order
+  Tạo order item
+  Tính tổng amount order
+Khách hàng thêm món
+  Tạo order item
+  Tính lại tổng amount order
+Nhân viên thêm món
+  Tạo order item
+  Tính lại tổng amount order
+Khách hàng edit món
+  Cập nhật order item
+  Tính lại tổng amount order
+Nhân viên edit món
+  Cập nhật order item
+  Tính lại tổng amount order
+Nhân viên confirm
+  Đổi trạng thái order thành confirmed
+Bếp làm
+  Đổi trạng thái order thành doing
+Khách hàng nhận nước
+  Đổi trạng thái order thành received
+Call - khách gọi hỗ trợ
+  Trường call -> true
+Payment - khách gọi thanh toán
+  Trường payment -> true
+Khách hàng thanh toán 1 phần
+  Thanh toán một phần orderItems
+  Tạo bill và billitem
+  OrderItem trường payment -> true -> tạo billItem
+Khách hàng thanh toán
+  Thanh toán toàn bộ orderItems
+  Tạo bill
+  OrderItem trường payment -> true -> tạo billItem
+finish
+  Đổi trạng thái order thành finish
+
+
+Các function liên quan tới order
+
+
+Store (Khách hàng order)
+Update (Khách hàng edit /Nhân viên thêm món /Khách hàng thêm món /Nhân viên thêm món)
+ChangeStatus (Nhân viên confirm /Khách hàng nhận nước/ Bếp làm /finish)
+Doing (Đổi trạng thái của order item )
+Payment (Khách hàng thanh toán)

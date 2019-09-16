@@ -123,6 +123,7 @@ return [
                 'updateOrder' => \App\GraphQL\Mutations\OrderUpdateMutation::class,
                 'updateOrderItem' => \App\GraphQL\Mutations\OrderItemUpdateMutation::class,
                 'createBill' => \App\GraphQL\Mutations\BillCreateMutation::class,
+                'orderItemStatus' => \App\GraphQL\Mutations\OrderItemStatusMutation::class,
             ],
             // ...
             // 'middleware' => ['auth:api'],

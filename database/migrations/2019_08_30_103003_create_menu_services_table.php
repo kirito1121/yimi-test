@@ -17,7 +17,6 @@ class CreateMenuServicesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('index')->default(0)->comment('Vị trí của service');
             $table->integer('price')->comment('Giá custom của service');
-            $table->boolean('hot')->default(0);
             $table->unsignedInteger('service_id')->foreign('service_id')->references('id')->on('03_menus');
             $table->unsignedInteger('menu_id')->foreign('menu_id')->references('id')->on('03_services');
             $table->timestamps();
